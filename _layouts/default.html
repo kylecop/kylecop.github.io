@@ -2,29 +2,32 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title }} | My Engineering Portfolio</title>
     <style>
-        header { background: #333; color: white; padding: 20px; text-align: center; }
-        header a { color: white; margin: 0 15px; text-decoration: none; }
-        main { padding: 20px; max-width: 800px; margin: 0 auto; }
+        body { font-family: system-ui, sans-serif; margin: 0; padding: 0; line-height: 1.6; color: #333; }
+        header { background: #24292e; color: white; padding: 20px 0; text-align: center; }
+        header h1 { margin: 0 0 10px 0; font-size: 1.8rem; }
+        nav a { color: #adbac7; margin: 0 15px; text-decoration: none; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: white; }
+        main { max-width: 800px; margin: 40px auto; padding: 0 20px; }
+        .project-card { border: 1px solid #e1e4e8; border-radius: 6px; padding: 20px; margin-bottom: 20px; }
     </style>
 </head>
 <body>
 
-    <!-- 1. YOUR SHARED HEADER GOES HERE -->
+    <!-- SHARED MULTI-PAGE HEADER -->
     <header>
-        <h1>My Website Logo</h1>
+        <h1>Engineering & Tech Portfolio</h1>
         <nav>
             <a href="{{ '/' | relative_url }}">Home</a>
-            <!-- <a href="{{ '/about/' | relative_url }}">About</a> -->
-            <a href="{{ '/Electrical.html' | relative_url }}">Electrical</a>
-            <a href="{{ '/VideoGaming.html' | relative_url }}">Video Gaming</a>
-            <a href="{{ '/CyberSecurity.html' | relative_url }}">Cyber Security</a>
-            <!-- <a href="{{ '/guestbook/' | relative_url }}">Guest Book</a> -->
+            <a href="{{ '/ElectricalEngineering/' | relative_url }}">Electrical Engineering</a>
+            <a href="{{ '/VideoGameDevelopement/' | relative_url }}">Video Game Developement</a>
+            <a href="{{ '/CyberSecurity/' | relative_url }}">Cyber Security</a>
         </nav>
     </header>
 
-    <!-- 2. This is where sub-page content will get injected -->
+    <!-- CONTENT INJECTION -->
     <main>
         {{ content }}
     </main>

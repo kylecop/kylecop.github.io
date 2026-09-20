@@ -132,6 +132,7 @@ title: Live Portfolio & Resume
 
                 repoGrid.innerHTML = repos.map(repo => {
                     if (repo.fork) return '';
+                   // FIXED CLEAN CODE BLOCK FOR YOUR INPUT RULES:
                     return `
                         <div class="repo-card">
                             <h4 style="margin: 0 0 8px 0;">
@@ -146,6 +147,7 @@ title: Live Portfolio & Resume
                             </div>
                         </div>
                     `;
+
                 }).join('');
             }
         } catch (error) {

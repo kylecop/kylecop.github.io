@@ -1,0 +1,157 @@
+---
+layout: default
+title: Live Portfolio & Resume
+---
+
+<style>
+    .resume-container { display: grid; grid-template-columns: 1fr; gap: 30px; margin-top: 20px; }
+    @media (min-width: 768px) {
+        .resume-container { grid-template-columns: 2fr 1fr; }
+    }
+    .profile-card { text-align: center; background: #f6f8fa; border: 1px solid #d0d7de; border-radius: 6px; padding: 25px; position: sticky; top: 20px; }
+    .profile-avatar { width: 120px; height: 120px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+    .section-title { border-bottom: 2px solid #24292e; padding-bottom: 8px; margin-top: 0; color: #24292e; }
+    
+    /* REPOSITORIES */
+    .repo-grid { display: grid; grid-template-columns: 1fr; gap: 15px; margin-top: 15px; }
+    @media (min-width: 600px) { .repo-grid { grid-template-columns: 1fr 1fr; } }
+    .repo-card { border: 1px solid #d0d7de; border-radius: 6px; padding: 15px; background: #fff; transition: transform 0.2s; }
+    .repo-card:hover { transform: translateY(-2px); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
+    .badge { display: inline-block; padding: 2px 8px; font-size: 0.75rem; font-weight: 600; border-radius: 2em; background: #eaeef2; color: #24292e; margin-right: 5px; }
+    
+    /* EMPLOYMENT TIMELINE STYLING */
+    .timeline { position: relative; border-left: 2px solid #d0d7de; padding-left: 20px; margin-left: 10px; margin-top: 20px; }
+    .timeline-item { position: relative; margin-bottom: 30px; }
+    .timeline-item::before { content: ""; position: absolute; width: 12px; height: 12px; background: #0070f3; border: 2px solid #fff; border-radius: 50%; left: -28px; top: 6px; }
+    .job-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; margin-bottom: 5px; }
+    .job-title { font-weight: bold; margin: 0; color: #24292e; font-size: 1.1rem; }
+    .job-meta { font-size: 0.85rem; color: #57606a; font-weight: 500; }
+    .job-desc { margin: 5px 0 0 0; font-size: 0.95rem; color: #333; }
+    .job-bullets { margin: 8px 0 0 0; padding-left: 20px; font-size: 0.95rem; color: #444; }
+    .job-bullets li { margin-bottom: 4px; }
+</style>
+
+<div class="resume-container">
+    
+    <!-- LEFT SIDE: WORK EXPERIENCE & LIVE REPOSITORIES -->
+    <div>
+        <!-- Technical Competencies / Summary -->
+        <section style="margin-bottom: 35px;">
+            <h3 class="section-title">Professional Summary</h3>
+            <p>Multi-disciplinary innovator specializing in <strong>Electrical Engineering</strong>, <strong>Cyber Security</strong> system hardening, and interactive systems development within the <strong>Unity Engine</strong>. Adept at translating complex physical mechanics into automated machinery and managing security frameworks.</p>
+        </section>
+
+        <!-- EMPLOYMENT HISTORY SECTION (STATIC - EDIT THIS) -->
+        <section style="margin-bottom: 35px;">
+            <h3 class="section-title">Employment History</h3>
+            <div class="timeline">
+                
+                <!-- JOB 1 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <h4 class="job-title">Electrical & Control Systems Technician</h4>
+                        <span class="job-meta">Present</span>
+                    </div>
+                    <div class="job-meta" style="margin-bottom: 5px;">Company Name / Freelance • City, State</div>
+                    <p class="job-desc">Lead local automation build projects, handling system routing, component layout, and firmware testing.</p>
+                    <ul class="job-bullets">
+                        <li>Designed and deployed custom micro-controller wiring configurations for precision step-motor machinery.</li>
+                        <li>Built data logs tracking electrical signal integrity, cutting diagnostic turnaround times significantly.</li>
+                    </ul>
+                </div>
+
+                <!-- JOB 2 -->
+                <div class="timeline-item">
+                    <div class="job-header">
+                        <h4 class="job-title">Junior IT Security Analyst</h4>
+                        <span class="job-meta">2024 — 2025</span>
+                    </div>
+                    <div class="job-meta" style="margin-bottom: 5px;">Tech Defense Solutions • City, State</div>
+                    <p class="job-desc">Assisted in maintaining technical defensive baselines and applying system rules to operational infrastructure.</p>
+                    <ul class="job-bullets">
+                        <li>Audited user workstation profiles against industry-standard hardening benchmarks to systematically close security vulnerability loops.</li>
+                        <li>Documented standard operating procedures for patch rollouts across local environments.</li>
+                    </ul>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Live Projects from GitHub API -->
+        <section style="margin-bottom: 35px;">
+            <h3 class="section-title">Live GitHub Repositories</h3>
+            <p style="font-size: 0.9rem; color: #666;">Dynamically compiled directly from the GitHub API.</p>
+            <div id="github-repos" class="repo-grid">
+                <p>Querying GitHub API for latest assets...</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- RIGHT SIDE: LIVE PROFILE CARD & PROFILE LINKS -->
+    <div>
+        <div class="profile-card">
+            <img id="gh-avatar" class="profile-avatar" src="https://github.com" alt="Profile Picture">
+            <h3 id="gh-name" style="margin: 15px 0 5px 0;">Loading Name...</h3>
+            <p id="gh-bio" style="font-size: 0.9rem; color: #57606a; margin: 0 0 20px 0;">Fetching profile data...</p>
+            
+            <hr style="border:0; border-top: 1px solid #d0d7de; margin-bottom: 20px;">
+            
+            <div style="display: flex; flex-direction: column; gap: 10px; text-align: left;">
+                <a id="gh-link" href="#" target="_blank" style="color: #24292e; text-decoration: none; font-weight: 500;">🌐 GitHub Profile</a>
+                <a href="https://printables.com" target="_blank" style="color: #ff5c00; text-decoration: none; font-weight: 500;">📐 Printables Portfolio</a>
+                <a href="https://youtube.com" target="_blank" style="color: #ff0000; text-decoration: none; font-weight: 500;">📺 YouTube Channel</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- JAVASCRIPT FETCH INTEGRATION -->
+<script>
+    const GITHUB_USERNAME = "YOUR_GITHUB_USERNAME"; // Replace with your username
+
+    async function loadPortfolioData() {
+        try {
+            const profileRes = await fetch(`https://github.com{GITHUB_USERNAME}`);
+            if (profileRes.ok) {
+                const profile = await profileRes.json();
+                document.getElementById('gh-avatar').src = profile.avatar_url;
+                document.getElementById('gh-name').textContent = profile.name || profile.login;
+                document.getElementById('gh-bio').textContent = profile.bio || "Hardware & Software Engineering Portfolio.";
+                document.getElementById('gh-link').href = profile.html_url;
+            }
+
+            const reposRes = await fetch(`https://github.com{GITHUB_USERNAME}/repos?sort=updated&per_page=6`);
+            if (reposRes.ok) {
+                const repos = await reposRes.json();
+                const repoGrid = document.getElementById('github-repos');
+                
+                if (repos.length === 0) {
+                    repoGrid.innerHTML = "<p>No public repositories found.</p>";
+                    return;
+                }
+
+                repoGrid.innerHTML = repos.map(repo => {
+                    if (repo.fork) return '';
+                    return `
+                        <div class="repo-card">
+                            <h4 style="margin: 0 0 8px 0;">
+                                <a href="${repo.html_url}" target="_blank" style="color: #0969da; text-decoration: none;">${repo.name}</a>
+                            </h4>
+                            <p style="font-size: 0.85rem; color: #57606a; margin: 0 0 12px 0; min-height: 40px;">
+                                ${repo.description || 'No description provided.'}
+                            </p>
+                            <div>
+                                ${repo.language ? `<span class="badge">\${repo.language}</span>` : ''}
+                                <span style="font-size: 0.75rem; color: #57606a;">⭐ ${repo.stargazers_count}</span>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            }
+        } catch (error) {
+            console.error(error);
+            document.getElementById('github-repos').innerHTML = "<p style='color:red;'>Failed to load live portfolio data.</p>";
+        }
+    }
+    loadPortfolioData();
+</script>

@@ -251,52 +251,45 @@ p {
    ========================================================================== */
 .links-container {
     display: flex;
-    flex-direction: column;
-    gap: 12px;
+    flex-direction: row; /* Forces items to stay side-by-side on one line */
+    gap: 8px;            /* Tight gap to save precious phone screen space */
     width: 100%;
-    max-width: 440px;
+    max-width: 580px;
     margin: 24px auto 0 auto;
 }
 
 .link-card {
     display: flex;
+    flex-grow: 1;        /* Forces all 4 buttons to share available width equally */
+    flex-basis: 0;       /* Ensures all 4 buttons are the exact same width */
     justify-content: center;
     align-items: center;
     background-color: var(--card-bg);
     color: var(--text-color);
     text-decoration: none;
-    padding: 16px;
-    border-radius: 12px;
-    font-size: 0.95rem;
+    padding: 12px 6px;   /* Streamlined vertical & horizontal padding to prevent text overflow */
+    border-radius: 8px;
+    font-size: 0.8rem;   /* Tailored text scaling size for small mobile screens */
     font-weight: 600;
     border: 1px solid var(--card-border);
     transition: all 0.2s ease;
+    white-space: nowrap; /* Rigid rule that stops text from splitting into two rows */
 }
 
 .link-card:hover {
     background-color: var(--card-border);
     border-color: var(--text-muted);
-    transform: scale(1.01);
+    transform: translateY(-1px);
 }
 
-/* ==========================================================================
-   DESKTOP COMPOSITIONS (Screens wider than 768px)
-   ========================================================================== */
+/* Upscale buttons and fonts smoothly when the user is on a larger tablet or desktop */
 @media (min-width: 768px) {
-    .header-wrap {
-        flex-direction: row;
-        justify-content: space-between;
+    .links-container {
+        gap: 12px;
     }
-    header h1 { font-size: 1.1rem; }
-    nav { gap: 4px; }
-    
-    .resume-container {
-        display: grid;
-        grid-template-columns: 2.5fr 1fr; /* Golden ratio splitting */
-        flex-direction: row;
-        gap: 48px;
+    .link-card {
+        font-size: 0.95rem;
+        padding: 16px;
     }
-    .profile-card { position: sticky; top: 100px; }
-    .repo-grid { grid-template-columns: 1fr 1fr; }
-    .job-header { flex-direction: row; justify-content: space-between; align-items: baseline; }
+
 }

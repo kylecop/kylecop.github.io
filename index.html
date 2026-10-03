@@ -1,38 +1,36 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kyle Cop | Links</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+---
+layout: default
+title: Home
+---
+<h2>Welcome to my Portfolio</h2>
+<!--
+<p>Select a category from the navigation bar above to view my active engineering, development, and security projects.</p>
+-->
 
-    <div class="linktree-wrapper">
-        <!-- Profile Section -->
-        <header class="profile-header">
-            <div class="avatar-circle">KC</div>
-            <h1>Kyle Cop</h1>
-            <p class="subtitle">3D Design & Engineering Portfolio</p>
-        </header>
+<h3>Find Me Online</h3>
+<div class="links-container">
+    <a href="https://www.github.com/kylecop" target="_blank" class="link-card">GitHub</a>
+    <a href="https://www.printables.com/@KyleCoppedge_5243809" target="_blank" class="link-card">Printables</a>
+    <!--
+    <a href="https://youtube.com" target="_blank" class="link-card">YouTube</a>
+    <a href="https://facebook.com" target="_blank" class="link-card">Facebook</a>
+    -->
+</div>
 
-        <!-- Links Container -->
-        <main class="links-container">
-            
-            <!-- Printables Custom Button -->
-            <a href="https://printables.com" target="_blank" class="btn-link printables-btn">
-                <span class="btn-icon">🖨️</span>
-                <span class="btn-text">My Printables Portfolio</span>
-            </a>
 
-            <!-- GitHub Custom Button -->
-            <a href="https://github.com" target="_blank" class="btn-link github-btn">
-                <span class="btn-icon">🐙</span>
-                <span class="btn-text">Follow on GitHub</span>
-            </a>
-
-        </main>
-    </div>
-
-</body>
-</html>
+<!--
+<h3>Recent Blog Posts</h3>
+<div style="display: flex; flex-direction: column; gap: 15px;">
+    {% if site.posts.size > 0 %}
+        {% for post in site.posts limit:5 %}
+            <div style="border-left: 4px solid #0070f3; padding-left: 15px; margin-bottom: 10px;">
+                <span style="font-size: 0.85rem; color: #666;">{{ post.date | date: "%B %d, %Y" }}</span>
+                <h4 style="margin: 5px 0;"><a href="{{ post.url | relative_url }}" style="color: #0070f3; text-decoration: none;">{{ post.title }}</a></h4>
+                <p style="margin: 0; color: #555; font-size: 0.95rem;">{{ post.excerpt | strip_html | truncatewords: 25 }}</p>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p style="color: #666; font-style: italic;">No blog posts written yet. Check back soon!</p>
+    {% endif %}
+</div>
+-->
